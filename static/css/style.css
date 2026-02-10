@@ -1,0 +1,265 @@
+html {
+    scroll-behavior: smooth;
+}
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background-color: #0a1a2f;
+    color: white;
+}
+
+nav h1 {
+    font-size: 24px;
+}
+
+nav p {
+    font-size: 14px;
+    font-style: italic;
+}
+
+/* Hero Section */
+#hero {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #f4f6f8;
+}
+
+#hero h2 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+#hero h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #0a1a2f;
+}
+
+#hero p {
+    font-size: 18px;
+    max-width: 600px;
+    margin-bottom: 30px;
+}
+
+#hero a {
+    padding: 12px 30px;
+    background-color: #0a1a2f;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+#hero a, #contact button {
+    transition: all 0.3s ease;
+}
+
+#hero a:hover, #contact button:hover {
+    background-color: #162f55;
+    transform: translateY(-3px);
+}
+
+
+/* Sections */
+section {
+    padding: 80px 60px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #0a1a2f;
+    color: white;
+}
+/* ABOUT SECTION */
+#about h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #0a1a2f;
+}
+
+#about p {
+    font-size: 18px;
+    max-width: 700px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* SERVICES SECTION */
+#services h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #0a1a2f;
+    text-align: center;
+}
+
+#services ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+#services li {
+    background-color: #eee;
+    padding: 30px;
+    border-radius: 10px;
+    min-width: 200px;
+    text-align: center;
+    font-weight: bold;
+    transition: transform 0.3s;
+}
+
+#services li:hover {
+    transform: translateY(-5px);
+    background-color: #d3d3d3;
+}
+
+/* CONTACT SECTION */
+#contact h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #0a1a2f;
+    text-align: center;
+}
+
+#contact p {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+#contact form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#contact input, #contact textarea {
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    width: 100%;
+}
+
+#contact button {
+    padding: 12px;
+    background-color: #0a1a2f;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#contact button:hover {
+    background-color: #162f55;
+}
+/* Responsive Design */
+@media (max-width: 1024px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 30px;
+    }
+
+    #services ul {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Navbar stacked */
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav h1 {
+        font-size: 28px;
+        margin-bottom: 5px;
+    }
+
+    nav p {
+        font-size: 16px;
+    }
+
+    /* Hero section smaller text */
+    #hero h2 {
+        font-size: 36px;
+    }
+
+    #hero h3 {
+        font-size: 20px;
+    }
+
+    #hero p {
+        font-size: 16px;
+        padding: 0 20px;
+    }
+
+    #services ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #services li {
+        min-width: 80%;
+        margin-bottom: 20px;
+    }
+
+    #contact form {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    #hero h2 {
+        font-size: 28px;
+    }
+
+    #hero h3 {
+        font-size: 18px;
+    }
+
+    #hero p {
+        font-size: 14px;
+    }
+
+    #services li {
+        padding: 20px;
+    }
+
+    #contact button {
+        padding: 10px;
+    }
+}
+.section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Balaji Roadlines | A Step Ahead</title>
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <h1>Balaji Roadlines</h1>
+        <p>A Step Ahead</p>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="hero">
+        <h2>Balaji Roadlines</h2>
+        <h3>A Step Ahead</h3>
+        <p>
+            Reliable transport & logistics solutions delivering trust, safety,
+            and timely service.
+        </p>
+        <a href="#contact">Contact Us</a>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <h2>About Us</h2>
+        <p>
+            Balaji Roadlines (BRL) is a trusted road transportation and logistics
+            company committed to safe, efficient, and on-time delivery.
+        </p>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services">
+        <h2>Our Services</h2>
+
+        <ul>
+            <li>Road Transportation</li>
+            <li>Logistics & Fleet Management</li>
+            <li>Industrial & Commercial Transport</li>
+        </ul>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+
+        <p>Email: balajiroadlines5@gmail.com</p>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <ul>
+    {% for category, message in messages %}
+      <li style="color: {% if category == 'success' %}green{% else %}red{% endif %};">
+        {{ message }}
+      </li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+    <form method="post">
+            <label>Name</label><br>
+            <input type="text" name="name"><br><br>
+
+            <label>Email</label><br>
+            <input type="email" name="email"><br><br>
+
+            <label>Message</label><br>
+            <textarea name="message"></textarea><br><br>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Balaji Roadlines — A Step Ahead</p>
+    </footer>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+
+</body>
+</html>
