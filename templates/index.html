@@ -2,84 +2,117 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Balaji Roadlines | A Step Ahead</title>
-     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balaji Roadlines</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- NAVBAR -->
-    <nav>
-        <h1>Balaji Roadlines</h1>
-        <p>A Step Ahead</p>
-    </nav>
-
-    <!-- HERO SECTION -->
-    <section id="hero">
-        <h2>Balaji Roadlines</h2>
-        <h3>A Step Ahead</h3>
-        <p>
-            Reliable transport & logistics solutions delivering trust, safety,
-            and timely service.
-        </p>
-        <a href="#contact">Contact Us</a>
-    </section>
-
-    <!-- ABOUT SECTION -->
-    <section id="about">
-        <h2>About Us</h2>
-        <p>
-            Balaji Roadlines (BRL) is a trusted road transportation and logistics
-            company committed to safe, efficient, and on-time delivery.
-        </p>
-    </section>
-
-    <!-- SERVICES SECTION -->
-    <section id="services">
-        <h2>Our Services</h2>
-
-        <ul>
-            <li>Road Transportation</li>
-            <li>Logistics & Fleet Management</li>
-            <li>Industrial & Commercial Transport</li>
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="container">
+        <a href="#" class="logo">Balaji Roadlines</a>
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#stats">Stats</a></li>
+            <li><a href="#fleet">Fleet</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
-    </section>
+        <div class="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+</nav>
 
-    <!-- CONTACT SECTION -->
-    <section id="contact">
+<!-- Hero Section -->
+<header id="hero" class="hero">
+    <div class="hero-overlay">
+        <div class="hero-content">
+            <h1>Balaji Roadlines</h1>
+            <p>A Step Ahead in Transport Solutions</p>
+            <a href="#contact" class="btn">Contact Us</a>
+        </div>
+    </div>
+</header>
+
+<!-- Services Section -->
+<section id="services" class="services">
+    <div class="container">
+        <h2>Our Services</h2>
+        <div class="service-cards">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/truck1.jpg') }}" alt="Transportation">
+                <h3>Road Transportation</h3>
+                <p>Reliable and timely delivery across India with our modern fleet.</p>
+            </div>
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/warehouse.jpg') }}" alt="Warehousing">
+                <h3>Warehousing</h3>
+                <p>Secure storage solutions to meet all logistics requirements.</p>
+            </div>
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/supply_chain.jpg') }}" alt="Supply Chain">
+                <h3>Supply Chain Management</h3>
+                <p>Optimized logistics to ensure smooth business operations.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section id="stats" class="stats">
+    <div class="container">
+        <div class="stat-item">
+            <h3>11</h3>
+            <p>Trucks in our fleet</p>
+        </div>
+        <div class="stat-item">
+            <h3>500+</h3>
+            <p>Miles Driven Daily</p>
+        </div>
+        <div class="stat-item">
+            <h3>10+</h3>
+            <p>Years of Experience</p>
+        </div>
+    </div>
+</section>
+
+<!-- Fleet Section -->
+<section id="fleet" class="fleet">
+    <div class="container">
+        <h2>Our Fleet</h2>
+        <div class="fleet-images">
+            <img src="{{ url_for('static', filename='images/truck1.jpg') }}" alt="Truck 1">
+            <img src="{{ url_for('static', filename='images/truck2.jpg') }}" alt="Truck 2">
+            <img src="{{ url_for('static', filename='images/truck3.jpg') }}" alt="Truck 3">
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
+    <div class="container">
         <h2>Contact Us</h2>
-
         <p>Email: balajiroadlines5@gmail.com</p>
-        {% with messages = get_flashed_messages(with_categories=true) %}
-  {% if messages %}
-    <ul>
-    {% for category, message in messages %}
-      <li style="color: {% if category == 'success' %}green{% else %}red{% endif %};">
-        {{ message }}
-      </li>
-    {% endfor %}
-    </ul>
-  {% endif %}
-{% endwith %}
-    <form method="post">
-            <label>Name</label><br>
-            <input type="text" name="name"><br><br>
-
-            <label>Email</label><br>
-            <input type="email" name="email"><br><br>
-
-            <label>Message</label><br>
-            <textarea name="message"></textarea><br><br>
-
-            <button type="submit">Send Message</button>
+        <p>Phone: +91 XXXXX XXXXX</p>
+        <form action="#" method="post">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn">Send Message</button>
         </form>
-    </section>
+    </div>
+</section>
 
-    <!-- FOOTER -->
-    <footer>
-        <p>© 2026 Balaji Roadlines — A Step Ahead</p>
-    </footer>
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <p>© 2026 Balaji Roadlines. All Rights Reserved.</p>
+    </div>
+</footer>
 
-
+<script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </body>
 </html>
