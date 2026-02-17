@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, request, flash, redirect
 from flask_mail import Mail, Message
 
@@ -37,7 +38,7 @@ def home():
         return redirect("/")
 
     return render_template("index.html")
-    
+
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
