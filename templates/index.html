@@ -5,120 +5,62 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Balaji Roadlines</title>
 
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<header class="navbar">
-  <div class="container nav-inner">
-    <div class="logo">BALAJI ROADLINES</div>
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#fleet">Fleet</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
+<div id="loader"></div>
 
-<!-- HERO -->
+<nav id="navbar">
+  <div class="logo">BRL</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#stats">Stats</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
 <section class="hero">
+  <video autoplay muted loop playsinline class="hero-video">
+    <source src="{{ url_for('static', filename='videos/hero-video.mp4') }}" type="video/mp4">
+  </video>
+  <div class="overlay"></div>
   <div class="hero-content">
-    <h1>
-      Precision Logistics.<br>
-      Powerful Movement.
-    </h1>
-    <p>Delivering transport excellence across India with reliability and scale.</p>
-    <a href="#contact" class="btn">Request a Quote</a>
+    <h1>Balaji Roadlines</h1>
+    <p>A Step Ahead in Logistics</p>
+    <a href="#contact" class="btn">Request Quote</a>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section id="services" class="section section-dark">
-  <div class="container">
-    <div class="section-header">
-      <span>WHAT WE DO</span>
-      <h2>Integrated Transport Solutions</h2>
-    </div>
+<section id="about" class="section slide-left">
+  <h2>About Us</h2>
+  <p>Delivering transport excellence across India with precision, safety and reliability.</p>
+</section>
 
-    <div class="service-row">
-      <div class="service-text">
-        <h3>Road Freight</h3>
-        <p>
-          High-capacity fleet operations designed for timely nationwide delivery.
-          Every shipment handled with operational discipline and precision.
-        </p>
-      </div>
-      <div class="service-image">
-        <img src="{{ url_for('static', filename='images/truck1.jpg') }}">
-      </div>
-    </div>
-
-    <div class="service-row reverse">
-      <div class="service-text">
-        <h3>Fleet Operations</h3>
-        <p>
-          Real-time monitoring, structured logistics planning and performance tracking
-          ensuring seamless transport execution.
-        </p>
-      </div>
-      <div class="service-image">
-        <img src="{{ url_for('static', filename='images/truck2.jpg') }}">
-      </div>
-    </div>
-
+<section id="stats" class="section dark slide-right">
+  <div class="stat">
+    <h2 class="counter" data-target="500">0</h2>
+    <p>Deliveries</p>
+  </div>
+  <div class="stat">
+    <h2 class="counter" data-target="120">0</h2>
+    <p>Clients</p>
+  </div>
+  <div class="stat">
+    <h2 class="counter" data-target="15">0</h2>
+    <p>Years Experience</p>
   </div>
 </section>
 
-<!-- STATS -->
-<section class="stats">
-  <div class="container stats-grid">
-    <div>
-      <h3>15+</h3>
-      <p>Modern Trucks</p>
-    </div>
-    <div>
-      <h3>25+</h3>
-      <p>Years Experience</p>
-    </div>
-    <div>
-      <h3>10000+</h3>
-      <p>Successful Deliveries</p>
-    </div>
-  </div>
-</section>
-
-<!-- FLEET -->
-<section id="fleet" class="section">
-  <div class="container">
-    <div class="section-header center">
-      <span>OUR ASSETS</span>
-      <h2>Engineered for Performance</h2>
-    </div>
-
-    <div class="fleet-grid">
-      <img src="{{ url_for('static', filename='images/truck1.jpg') }}">
-      <img src="{{ url_for('static', filename='images/truck2.jpg') }}">
-      <img src="{{ url_for('static', filename='images/truck3.jpg') }}">
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
 <section id="contact" class="contact">
-  <div class="container contact-box">
-    <h2>Let’s Move Forward Together</h2>
+  <div class="glass">
+    <h2>Contact Us</h2>
     <p>balajiroadlines5@gmail.com</p>
-    <p>+91 XXXXX XXXXX</p>
-    <a href="mailto:balajiroadlines5@gmail.com" class="btn">Contact Us</a>
   </div>
 </section>
 
-<footer class="footer">
-  © 2026 Balaji Roadlines. All Rights Reserved.
-</footer>
-
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
