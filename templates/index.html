@@ -11,8 +11,6 @@
 
 <body>
 
-<div id="loader"></div>
-
 <nav id="navbar">
   <div class="logo">BRL</div>
   <ul>
@@ -23,15 +21,19 @@
 </nav>
 
 <section class="hero">
-  <video autoplay muted loop playsinline class="hero-video">
-    <source src="{{ url_for('static', filename='videos/hero-video.mp4') }}" type="video/mp4">
-  </video>
-  <div class="overlay"></div>
-  <div class="hero-content">
-    <h1>Balaji Roadlines</h1>
-    <p>A Step Ahead in Logistics</p>
-    <a href="#contact" class="btn">Request Quote</a>
-  </div>
+
+<video autoplay muted loop playsinline class="hero-video">
+<source src="{{ url_for('static', filename='videos/hero-video.mp4') }}" type="video/mp4">
+</video>
+
+<div class="hero-overlay"></div>
+
+<div class="hero-content">
+<h1>Precision Logistics.<br>Powerful Movement.</h1>
+<p>Delivering transport excellence across India with reliability and scale.</p>
+<a href="#contact" class="btn-primary">Request a Quote</a>
+</div>
+
 </section>
 
 <section id="about" class="section slide-left">
