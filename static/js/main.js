@@ -8,6 +8,7 @@ window.addEventListener("load", () => {
   if (loader) {
     loader.classList.add("hide");
   }
+
   revealOnScroll();
 });
 
@@ -15,18 +16,19 @@ window.addEventListener("scroll", () => {
   if (navbar) {
     navbar.classList.toggle("scrolled", window.scrollY > 30);
   }
+
   revealOnScroll();
 });
 
-if (menuToggle) {
+if (menuToggle && navbar) {
   menuToggle.addEventListener("click", () => {
     navbar.classList.toggle("open");
   });
 }
 
-document.querySelectorAll('.nav-links a').forEach(link => {
-  link.addEventListener('click', () => {
-    if (navbar.classList.contains("open")) {
+document.querySelectorAll(".nav-links a").forEach((link) => {
+  link.addEventListener("click", () => {
+    if (navbar && navbar.classList.contains("open")) {
       navbar.classList.remove("open");
     }
   });
@@ -43,28 +45,37 @@ function revealOnScroll() {
   });
 }
 
-const counterObserver = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
+function runCounter(counter) {
+  const target = parseInt(counter.dataset.target, 10);
+  let current = 0;
+  const step = Math.max(1, Math.ceil(target / 80));
 
-    const counter = entry.target;
-    const target = +counter.getAttribute("data-target");
-    let current = 0;
-    const increment = Math.max(1, Math.ceil(target / 120));
+  function tick() {
+    current += step;
 
-    const updateCounter = () => {
-      current += increment;
-      if (current < target) {
-        counter.textContent = current;
-        requestAnimationFrame(updateCounter);
-      } else {
-        counter.textContent = target;
+    if (current >= target) {
+      counter.textContent = target;
+      return;
+    }
+
+    counter.textContent = current;
+    requestAnimationFrame(tick);
+  }
+
+  tick();
+}
+
+if ("IntersectionObserver" in window) {
+  const statsObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        runCounter(entry.target);
+        observer.unobserve(entry.target);
       }
-    };
+    });
+  }, { threshold: 0.35 });
 
-    updateCounter();
-    observer.unobserve(counter);
-  });
-}, { threshold: 0.6 });
-
-counters.forEach(counter => counterObserver.observe(counter));
+  counters.forEach((counter) => statsObserver.observe(counter));
+} else {
+  counters.forEach((counter) => runCounter(counter));
+}
